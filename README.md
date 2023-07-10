@@ -55,6 +55,13 @@ body structure of _evaluate/_:
 I have attached some samples below of body and response of apis.
 
 _Sample 1_
+**Rules**
+calls > 10, calls <= 15 => 300rs
+calls > 20, conversation > 15 => 600rs
+**Test Case**
+Ram: calls = 15, conversion = 10
+Shyam: calls = 28, conversion = 20
+
 
 **add-rule/**
 cURL:
@@ -150,7 +157,17 @@ response:
     ]
 }
 
+
+
 _Sample 2_
+**Rules**
+if place startsWith _d_, endsWith _i_ => then place is delhi
+if place startsWith _b_, and its length is 6 => then place is bombay
+
+**Test Case**
+l1: place = d___i
+l2: place = bom___
+
 
 **add-rule/**
 cURL:

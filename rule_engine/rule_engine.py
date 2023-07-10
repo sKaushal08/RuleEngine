@@ -12,8 +12,10 @@ class RuleEngine:
             conditions = rule['conditions']
             if all(self.evaluateCondition(condition, query) for condition in conditions):      
                 result.append({'name': query['name'], 'value': rule['actions']})
-            
-        return result
+        if(result == []):
+            return [{'name': query['name'], 'value': 'No condition matched'}]
+        else:
+            return result
 
     def evaluateCondition(self, condition, data):
         variable = condition['var_name']
