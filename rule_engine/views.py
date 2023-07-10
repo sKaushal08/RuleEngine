@@ -9,7 +9,8 @@ rule_engine = RuleEngine()
 def add_rule(request):
     data = json.loads(request.body)
     for rule in data['rules']:
-        rule_engine.addRule(rule)
+        if (rule not in rule_engine.rules):
+            rule_engine.addRule(rule)
     return JsonResponse({'message': 'Success: Rule added', 'rules': rule_engine.rules})
 
 
